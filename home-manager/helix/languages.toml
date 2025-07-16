@@ -1,0 +1,67 @@
+# PYTHON
+
+[[language]]
+indent = { tab-width = 4, unit = "    " }
+name = "python"
+language-servers = ["pyright", "ruff"]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.ruff]
+command = "ruff-lsp"
+args = []
+
+# RUST
+[[language]]
+name = "rust" 
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+# JAVASCRIPT / TYPESCRIPT
+
+[[language]]
+name = "javascript"
+indent = { tab-width = 4, unit = "    " }
+language-servers = [
+  "typescript-language-server", # optional
+  "vscode-eslint-language-server",
+]
+[[language]]
+name = "jsx"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+[[language]]
+name = "tsx"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+
+# TOML AND STUFF
+
+[[language]]
+name = "toml"
+scope = "source.toml"
+injection-regex = "toml"
+file-types = ["toml", { glob = "pdm.lock" }, { glob = "poetry.lock" }, { glob = "Cargo.lock" }, { glob = "uv.lock" }]
+comment-token = "#"
+language-servers = [ "taplo", "tombi" ]
+ indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "css"
+ indent = { tab-width = 4, unit = "    " }
