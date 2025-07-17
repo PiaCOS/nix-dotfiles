@@ -61,6 +61,7 @@
     ".config/helix/config.toml".source = ./helix/config.toml;
     ".config/helix/languages.toml".source = ./helix/languages.toml;
     ".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
+    ".config/kitty/current-theme.conf".source = ./kitty/noirbuddy-oxide.conf;
     ".config/fish/config.fish".source = ./fish/config.fish;
     ".config/fish/conf.d".source = ./fish/conf.d;
     ".config/fish/functions".source = ./fish/functions;
