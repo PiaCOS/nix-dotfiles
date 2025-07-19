@@ -1,12 +1,11 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
 
     # ---------------------------------------------------
     # ALIAS STUFF
     # ---------------------------------------------------
 
     alias ll="ls -lsa"
-    abbr -a hms 'nix run home-manager/master -- switch --flake ~/.config/home-manager/#end'
+    abbr -a hms 'home-manager switch -v --flake ~/.config/home-manager/#default'
 
     # clipboard stuff
     alias claptrap="pwd | xclip -selection clipboard"
@@ -19,15 +18,17 @@ if status is-interactive
     # DEFAULT
     # ---------------------------------------------------
 
-    set -gx EDITOR hx
+    # Is already setup inside home.nix now
+    # set -gx EDITOR hx
 
     # ---------------------------------------------------
     # PATH STUFF
     # ---------------------------------------------------
 
-    # Add cargo to path
+    # Add home/bin to path (needed for some fish+nix stuff)
     set PATH $HOME/bin $PATH
 
+    # Add cargo pkg to path
     # set -x PATH $HOME/.cargo/bin
     set PATH $PATH ~/.cargo/bin
 
@@ -43,6 +44,5 @@ if status is-interactive
 
     # Add Home Manager environment variables
     test -f "$HOME/.nix-profile/etc/profile.d/hm-session-vars.fish" && . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.fish"
-
 
 end

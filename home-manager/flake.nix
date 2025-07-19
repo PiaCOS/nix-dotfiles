@@ -15,34 +15,6 @@
     };
   };
 
-  # outputs = { nixpkgs, home-manager, ... }:
-  #   let
-  #     system = "x86_64-linux";
-  #     pkgs = nixpkgs.legacyPackages.${system};
-  #   in {
-  #     homeConfigurations."default" = home-manager.lib.homeManagerConfiguration {
-  #       inherit pkgs;
-
-  #       modules = [ ./home.nix ];
-  #     };
-  #   };
-
-  # outputs = inputs: {
-  #   homeConfigurations.default = inputs.home-manager.lib.homeManagerConfiguration {
-  #     pkgs = import inputs.nixpkgs {
-  #       system = "x86_64-linux";
-  #       overlays = [
-  #         inputs.helix-flake.overlays.default
-  #       ];
-  #     };
-
-  #     modules = [
-  #       ./home.nix
-  #     ];
-  #   };
-  # };
-
-
   outputs = { self, nixpkgs, home-manager, helix-flake, ... }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

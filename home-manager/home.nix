@@ -10,10 +10,11 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
   
   home.packages = with pkgs; [
-    # Setup
+    # Important
     fish
-    kitty
     git
+    helix
+    kitty
     tmux
     vim
     
@@ -35,36 +36,26 @@
     lazygit
     ripgrep
     yazi
+    zellij
 
     # Fonts
     maple-mono.truetype
     maple-mono.NF-unhinted
     maple-mono.NF-CN-unhinted
-
   ];
-
-  programs.helix = {
-    enable = true;
-    # package = pkgs.helix.overrideAttrs (oldAttrs: {
-    #   version = "25.07";
-    #   src = pkgs.fetchFromGithub {
-    #     owner = "helix-editor";
-    #     repo = "helix";
-    #     rev = "5cda70e8";
-    #     sha256 = "sha256-YOUR_SHA256_HERE";
-    #   };
-    # });
-  };
 
   home.file = {
     # Config
     ".config/helix/config.toml".source = ./helix/config.toml;
     ".config/helix/languages.toml".source = ./helix/languages.toml;
+
     ".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
     ".config/kitty/current-theme.conf".source = ./kitty/noirbuddy-oxide.conf;
+
     ".config/fish/config.fish".source = ./fish/config.fish;
     ".config/fish/conf.d".source = ./fish/conf.d;
     ".config/fish/functions".source = ./fish/functions;
+
     ".tmux.conf".source = ./tmux/tmux.conf;
 
     # Scripts
