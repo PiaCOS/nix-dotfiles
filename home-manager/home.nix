@@ -4,8 +4,10 @@
 # nix flake update
 
 {
-  home.username = "odoo";
-  home.homeDirectory = "/home/odoo";
+  # home.username = "odoo";
+  # home.homeDirectory = "/home/odoo";
+  home.username = "pia";
+  home.homeDirectory = "/home/pia";
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
   
@@ -31,11 +33,14 @@
     vscode-langservers-extracted
 
     # Tools
+    fastfetch
+    fzf
     gh
     hyfetch
     lazygit
     ripgrep
     yazi
+    termusic
     zellij
 
     # Fonts
@@ -72,6 +77,22 @@
   home.sessionVariables = {
     EDITOR = "hx";
   };
+
+  # SWAY
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
+    config = rec {
+      input = {
+        "*" = {
+          xkb_layout = "fr";
+        };
+      };
+      modifier = "Mod4";
+      terminal = "kitty"; 
+    };
+  };
+  services.gnome-keyring.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
